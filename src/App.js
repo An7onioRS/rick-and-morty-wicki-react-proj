@@ -10,7 +10,6 @@ const App = () => {
   const [fetchedData, updateFetchedData] = useState([]) 
   let { info, results } = fetchedData 
   
-  console.log(results)
   const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}` 
 
   useEffect(() => {
@@ -35,9 +34,7 @@ const App = () => {
           
           <div className="col-8">
             <div className="row">
-              <Cards />
-              <Cards />
-              <Cards />
+              <Cards results={results}/>
             </div>  
           </div>
 
