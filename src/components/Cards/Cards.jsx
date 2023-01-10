@@ -34,7 +34,7 @@ const Cards = ({ results }) => {
       )
     })
   } else {
-    display = 'No Characters Found...Please try again'
+    display = 'No more Rick and Morty characters exist.'
   }
 
   return <>{display}</>
