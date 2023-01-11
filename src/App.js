@@ -10,9 +10,9 @@ const App = () => {
 
   const [pageNumber, setPageNumber] = useState(1)
   const [search, setSearch] = useState('')
-  const [fetchedData, updateFetchedData] = useState([]) 
+  const [fetchedData, updateFetchedData] = useState([])
   let { info, results } = fetchedData 
-
+  
   const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}` 
 
   useEffect(() => {
