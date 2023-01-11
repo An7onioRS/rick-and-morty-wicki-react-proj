@@ -8,12 +8,15 @@ import Search from './components/Search/Search'
 
 const App = () => {
 
+  const[status, setStatus] = useState('')
+  const [gender, setGender] = useState('')
+  const [species, setSpecies] = useState('')
   const [pageNumber, setPageNumber] = useState(1)
   const [search, setSearch] = useState('')
   const [fetchedData, updateFetchedData] = useState([])
   let { info, results } = fetchedData 
   
-  const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}` 
+  const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}` 
 
   useEffect(() => {
     (async () => {
@@ -33,9 +36,12 @@ const App = () => {
       <div className="container">
         <div className="row">
 
-          <div className="col-3">
-            <Filters />
-          </div>
+          <Filters 
+            setGender={setGender} 
+            setStatus={setStatus} 
+            setSpecies={setSpecies} 
+            setPageNumber={setPageNumber} 
+            />
           
           <div className="col-8">
             <div className="row">
