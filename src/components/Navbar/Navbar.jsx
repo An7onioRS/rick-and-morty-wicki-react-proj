@@ -6,13 +6,13 @@ import './navbar.css'
 
 const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
-        <div class="container-fluid">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary mb-4">
+        <div className="container-fluid">
         <Link to='/' className='fs-3 ubuntu navbar-brand'>
           Rick and Morty <span className="text-primary">Wiki</span>
         </Link>
         <button 
-          class="navbar-toggler" 
+          className="navbar-toggler" 
           type="button" 
           data-bs-toggle="collapse" 
           data-bs-target="#navbarNavAltMarkup" 
@@ -35,8 +35,8 @@ const Navbar = () => {
           <i className='fas fa-bars open fw-bold text-dark'></i>
           <i className="fas fa-times close fw-bold text-dark"></i>
           </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-          <div class="navbar-nav fs-5">
+        <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+          <div className="navbar-nav fs-5">
               <NavLink activeClassName='active' to='/' className="nav-link">Characters</NavLink>
               <NavLink activeClassName='active' to='/episodes' className="nav-link">Episodes</NavLink>
               <NavLink activeClassName='active' to='/location' className="nav-link">Location</NavLink>
