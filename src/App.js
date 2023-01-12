@@ -5,8 +5,30 @@ import Cards from './components/Cards/Cards'
 import Filters from './components/Filters/Filters'
 import Pagination from './components/Pagination/Pagination'
 import Search from './components/Search/Search'
+import Navbar from './components/Navbar/Navbar'
+import Episodes from './components/Pages/Episodes'
+import Location from './components/Pages/Location'
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 const App = () => {
+  return (
+    <Router>
+      <div className='App'>
+        <Navbar />
+      </div>
+
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/episodes' element={<Episodes />}/>
+        <Route path='/location' element={<Location />}/>
+      </Routes>
+
+    </Router>
+  )
+}
+
+const Home = () => {
 
   const[status, setStatus] = useState('')
   const [gender, setGender] = useState('')
@@ -27,9 +49,6 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className='text-center ubuntu my-4'>
-        Rick and Morty <span className="text-primary">Wiki</span>
-      </h1>
 
       <Search setPageNumber={setPageNumber} setSearch={setSearch}/>
 

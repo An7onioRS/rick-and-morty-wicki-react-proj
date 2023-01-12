@@ -1,7 +1,7 @@
 import React from 'react'
-import Gender from './Category/Genders'
-import Status from './Category/Status'
-import Species from './Category/Species'
+import Gender from '../Category/Genders'
+import Status from '../Category/Status'
+import Species from '../Category/Species'
 
 const Filters = ({ setStatus, setPageNumber, setGender, setSpecies }) => {
 

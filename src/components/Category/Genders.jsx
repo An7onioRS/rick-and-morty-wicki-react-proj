@@ -1,5 +1,5 @@
 import React from 'react'
-import FilterBtn from '../FilterBtn'
+import FilterBtn from '../Filters/FilterBtn'
 
 const Gender = ({ setPageNumber, setStatus, setGender }) => {
   const genders = ['Female', 'Male', 'Genderless', 'Unknown']
