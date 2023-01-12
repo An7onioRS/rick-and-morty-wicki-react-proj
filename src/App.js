@@ -30,7 +30,7 @@ const App = () => {
 
 const Home = () => {
 
-  const[status, setStatus] = useState('')
+  const [status, setStatus] = useState('')
   const [gender, setGender] = useState('')
   const [species, setSpecies] = useState('')
   const [pageNumber, setPageNumber] = useState(1)
