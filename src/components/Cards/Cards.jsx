@@ -1,16 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './cards.css'
 
-const Cards = ({ results }) => {
+const Cards = ({ results, page }) => {
 
   let display
-  
   if (results) {
     display = results.map(char => {
-      let { id, name, image, location, status } = char
+    let { id, name, image, location, status } = char
       return (   
-        <div key={id} className='col-4 mb-4 position-relative'>
+        <Link style={{ textDecoration: 'none' }} to={`${page}${id}`} key={id} className='col-4 mb-4 position-relative text-dark'>
           <div className="card">
             <img src={image} alt="" className="img-fluid img" />
             <div className="content">
@@ -30,7 +30,7 @@ const Cards = ({ results }) => {
               }
             })()}
           </div>
-        </div>
+        </Link>
       )
     })
   } else {

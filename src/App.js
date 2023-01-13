@@ -8,9 +8,9 @@ import Search from './components/Search/Search'
 import Navbar from './components/Navbar/Navbar'
 import Episodes from './components/Pages/Episodes'
 import Location from './components/Pages/Locations'
+import CardDetails from './components/Cards/CardDetails'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import CardDetails from './components/Cards/CardDetails'
 
 const App = () => {
   return (
@@ -24,7 +24,10 @@ const App = () => {
         <Route path='/:id' element={<CardDetails />}/>
 
         <Route path='/episodes' element={<Episodes />}/>
+        <Route path='/episodes/:id' element={<CardDetails />}/>
+
         <Route path='/location' element={<Location />}/>
+        <Route path='/location/:id' element={<CardDetails />}/>
       </Routes>
 
     </Router>
@@ -38,7 +41,7 @@ const Home = () => {
   const [species, setSpecies] = useState('')
   const [pageNumber, setPageNumber] = useState(1)
   const [search, setSearch] = useState('')
-  const [fetchedData, updateFetchedData] = useState([])
+  const [fetchedData, setFetchedData] = useState([])
   let { info, results } = fetchedData 
   
   const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}` 
@@ -46,13 +49,14 @@ const Home = () => {
   useEffect(() => {
     (async () => {
       let data = await fetch(api).then(res => res.json())
-      updateFetchedData(data)
+      setFetchedData(data)
     })()
   }, [api]) 
 
   return (
     <div className="App">
 
+      <h1 className="text-center mb-4">Characters</h1>
       <Search setPageNumber={setPageNumber} setSearch={setSearch}/>
 
       <div className="container">
@@ -67,7 +71,7 @@ const Home = () => {
           
           <div className="col-8">
             <div className="row">
-              <Cards results={results}/>
+              <Cards page="/" results={results}/>
             </div>  
           </div>
 

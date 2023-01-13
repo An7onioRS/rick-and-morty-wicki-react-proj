@@ -4,27 +4,26 @@ import Cards from '../Cards/Cards'
 import InputGroup from '../Category/InputGroup'
 import { useState, useEffect } from 'react'
 
-const Episodes = () => {
+const Location = () => {
 
   const [id, setID] = useState(1)
   const [fetchedData, setFetchedData] = useState([])
   const [results, setResults] = useState([])
 
-  const { air_date, name } = fetchedData  
-  const api_episodes = `https://rickandmortyapi.com/api/episode/${id}`
+  const { name, type, dimension } = fetchedData  
+  const api_episodes = `https://rickandmortyapi.com/api/location/${id}`
 
   useEffect(() => {
     (async () => {
       const data = await fetch(api_episodes).then(res => res.json())
-      console.log(data)
       setFetchedData(data)
 
-      let chars = await Promise.all(
-        data.characters.map((char) => {
+      let locations = await Promise.all(
+        data.residents.map((char) => {
           return fetch(char).then(res => res.json())
         })
       )
-      setResults(chars)
+      setResults(locations)
     })()
   }, [api_episodes])
 
@@ -33,25 +32,28 @@ const Episodes = () => {
     <div className="container">
       <div className="row mb-4">
         <h1 className="text-center mb-4">
-          Episode: {' '} 
+          Location: {' '} 
           <span className="text-primary">
             {name ? name : 'No name was found for this episode'}
           </span>
         </h1>
         <h5 className="text-center">
-          Air Date: {' '} {air_date ? air_date : 'No air date was found for this episode'}
+          Dimension: {dimension ? dimension : 'No dimension was found for this episode'}
         </h5>
+        <h6 className="text-center">
+          Type: {type ? type : 'No type was found for this episode'}
+        </h6>
       </div>
       <div className="row">
         <div className="col-3">
           <h4 className="text-center mb-4">
-            Pick Episodes
+            Pick Location
           </h4>
-          <InputGroup type={'Episode'} setID={setID} total={51}/>
+          <InputGroup setID={setID} type='Location' total={126}/>
         </div>
         <div className="col-8">
           <div className="row">
-            <Cards page="/episodes/" results={results}/>
+            <Cards page="/locations/" results={results}/>
           </div>
         </div>
       </div>
@@ -59,4 +61,4 @@ const Episodes = () => {
   )
 }
 
-export default Episodes
+export default Location
