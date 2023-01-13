@@ -1,10 +1,15 @@
 .card {
     border: 2px solid #0b5ed7;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .img {
     border-radius: 10px 10px 0 0;
+    width: 100%;
 }
 
 .content {

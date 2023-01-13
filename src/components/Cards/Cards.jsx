@@ -10,7 +10,7 @@ const Cards = ({ results, page }) => {
     display = results.map(char => {
     let { id, name, image, location, status } = char
       return (   
-        <Link style={{ textDecoration: 'none' }} to={`${page}${id}`} key={id} className='col-4 mb-4 position-relative text-dark'>
+        <Link style={{ textDecoration: 'none' }} to={`${page}${id}`} key={id} className='col-lg-4 col-md-6 col-12 mb-4 position-relative text-dark'>  
           <div className="card">
             <img src={image} alt="" className="img-fluid img" />
             <div className="content">
