@@ -7,9 +7,10 @@ import Pagination from './components/Pagination/Pagination'
 import Search from './components/Search/Search'
 import Navbar from './components/Navbar/Navbar'
 import Episodes from './components/Pages/Episodes'
-import Location from './components/Pages/Location'
+import Location from './components/Pages/Locations'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import CardDetails from './components/Cards/CardDetails'
 
 const App = () => {
   return (
@@ -20,6 +21,8 @@ const App = () => {
 
       <Routes>
         <Route path='/' element={<Home />}/>
+        <Route path='/:id' element={<CardDetails />}/>
+
         <Route path='/episodes' element={<Episodes />}/>
         <Route path='/location' element={<Location />}/>
       </Routes>
